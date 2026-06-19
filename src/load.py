@@ -31,6 +31,12 @@ def load(df):
     cursor.close()
     conn.close()    
     print(f"[load] Inserted {len(rows)} records into the database.")
-    
 
-    
+
+if __name__ == "__main__":
+    from extract import extract_all
+    from transform import transform
+    raw = extract_all()
+    df = transform(raw)
+    load(df)
+
